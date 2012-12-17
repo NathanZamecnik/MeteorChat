@@ -63,7 +63,7 @@ if(Meteor.isServer) {
 	Meteor.publish('chatroomusers', function(chan) {
 	//look at the current_room session
 	//
-  	return Chatroom.find({'chatroomname':Session.get('current_room')},{'users':1});
+  	return Chatroom.find({'chatroomname':Session.get('current_room')});
   	//self.onStop(function () {
     //	handle.stop();
   	//});
