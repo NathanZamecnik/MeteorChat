@@ -16,7 +16,7 @@ if(Meteor.isClient) {
 			return Chatroom.find({'chatroom':Session.get('current_room')});
 		},
 
-		'name' : function() {
+		'uname' : function() {
 			return Session.get('username');
 		}
 	});
