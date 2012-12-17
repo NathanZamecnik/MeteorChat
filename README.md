@@ -10,5 +10,11 @@
 ###Users: A container of users that are logged in###
 ###Chatrooms: A list of all chatrooms in the system###
 ###Chatroom: The chatroom currently being used###
+#####These are all published by the various controllers#####
+
+###Session Variables###
+###userid: used to track the users unique ID
+###current_room: used to manage which room the user is in
+###username: used to track the users name
 
 ####This is a very basic and prototypical structure.  The next phase is to create a more proper DB schema for better performace.  Currently the system would have a hard time under a large load as no keys have been set and the Chatroom collection can grow very rapidly as it contains all the messages.####

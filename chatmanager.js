@@ -10,6 +10,7 @@ if(Meteor.isClient) {
  	Meteor.subscribe('chatrooms');
  });
 
+//Return all Chatrooms for now as private chats have not been implemented
  Template.chatmanager.chatrooms = function() {
     return Chatrooms.find({});
   }
@@ -18,7 +19,7 @@ if(Meteor.isClient) {
   	'click input.chatroom_submit' :  function() {
   		var newchat_name = document.getElementById('newchat_input').value;
   		if(newchat_name === "") return;
-  		
+
   		if(Chatrooms.find({'chan':newchat_name}).count() === 0) {
 	  		Chatrooms.insert({'chan':newchat_name});
 	  		document.getElementById('newchat_input').value = "";
@@ -29,6 +30,7 @@ if(Meteor.isClient) {
       	}
 
       	else {
+      		//would be better to implement this as a validation item
       		alert("That room already exists!");
       	}
   	},
