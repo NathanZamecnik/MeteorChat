@@ -1,5 +1,5 @@
 <template name="chatroom">
-<h2>You are in chatroom: {{currentroom}}</h2>
+<h3>You are logged in as "{{name}}" and in chatroom "{{currentroom}}"</h3>
 <div id="chatwrapper">
 	<div class="chatuserswrapper">
 		<h2>Users</h2>
@@ -18,7 +18,7 @@
 		{{/each}}
 	</div>
 	<div class="chatinputwrapper">
-		<input type="text" class="chatinput input" id="chatinputfield">
+		<input type="text" class="chatinput input" id="chatinputfield" value="Enter your message here and press enter" onfocus="if(this.value===this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
 	</div>
 </div>
 </template>

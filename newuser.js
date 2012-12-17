@@ -20,12 +20,13 @@ if (Meteor.isClient) {
 
         if(new_user_name === "") return;
         
+        //Make sure the username is being used
         if(Users.find({'name':new_user_name}).count() === 0) {
           var userid = Users.insert({'name':new_user_name,'chatroom':GLOBAL_DEFAULTCHATROOM}, function () {
-            Session.set("username",new_user_name);
             document.getElementById('chatroomview').style.display = 'block';
             document.getElementById('userview').style.display = 'none';        
           });
+          Session.set("username",new_user_name);
           Session.set('userid',userid);
           Session.set('current_room',GLOBAL_DEFAULTCHATROOM);
         }
