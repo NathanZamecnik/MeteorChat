@@ -39,11 +39,17 @@ if(Meteor.isClient) {
   	'change select.chatroom_select ' : function() {
       var e = document.getElementById("newchat_select");
       var chatroom = e.options[e.selectedIndex].value;
+      var previousroom = Session.get('current_room',chatroom);
+      console.log("was in: " + previousroom);
       //Update the chatroom field from the user collection
       //NOTE THAT UPSERTS ARE NOT AVAILABLE IN METEOR YET
       //Validate this content as well
       Users.update({'_id' : Session.get('userid')},{'name':Session.get('username'),'chatroom':chatroom});
       Session.set('current_room',chatroom);
+      if((Users.find({'chatroom':previousroom}).count() === 0)&& GLOBAL_DEFAULTCHATROOM !== previousroom) {
+      	//get rid of the room as it is empty.  But not if it is General Chat
+      	Chatrooms.remove({'chan':previousroom});
+      }
     },
 
     //'click a.namechange' : function() {
@@ -54,8 +60,8 @@ if(Meteor.isClient) {
     //Do this async
     'click a.logout' : function() {
 		Users.remove({_id:Session.get('userid')},function() {
-    			document.getElementById('chatroomview').style.display = 'none';
-        		document.getElementById('userview').style.display = 'block';   
+				document.getElementById('chatroomview').style.display = 'none';
+	    		document.getElementById('userview').style.display = 'block';   
 		});
     }
   });

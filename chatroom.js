@@ -34,7 +34,8 @@ if(Meteor.isClient) {
 			if(e.keyCode === 13) {
 				var msg = document.getElementById('chatinputfield').value;
 				console.log(Session.get('current_room') + msg);
-
+				if(msg === "") return;
+				
 				if(msg === '/clear') {
 					Chatroom.remove({'chatroom':Session.get('current_room')},function() {
 					document.getElementById('chatinputfield').value = '';
