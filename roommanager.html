@@ -1,0 +1,12 @@
+<template name="roomcreate">
+	<div class="newchat_wrapper" id="roommanager">
+		<h2 class="newchat_heading">Create a new room or select an existing room</h2>
+		<input type="text" class="chatroom_select text" id="newchat_input"></input>
+		<input type="submit" class="chatroom_submit submit" id="newchat_submit"></input>
+		<select class="chatroom_select select" id="newchat_select">
+    		{{#each chatrooms}}
+    		<option value="{{chan}}">{{chan}}</option>
+		    {{/each}}
+  		</select>
+	</div>
+</template>

@@ -1,0 +1,1 @@
+var GLOBAL_DEFAULTCHATROOM = "General Discussion";

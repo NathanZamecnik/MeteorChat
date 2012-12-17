@@ -1,0 +1,9 @@
+body {
+	font-family:sans-serif;
+	background: -moz-radial-gradient(center, ellipse cover, #B7C0C4 22%, #222 100%);
+	background: -webkit-radial-gradient(center, ellipse cover, #B7C0C4 22%, #222 100%);
+	background: -o-radial-gradient(center, ellipse cover, #B7C0C4 22%, #222 100%);
+	background: -ms-radial-gradient(center, ellipse cover, #B7C0C4 22%, #222 100%);
+	background: radial-gradient(ellipse at center, #B7C0C4 22%, #222 100%);
+	background-position: center center;
+}

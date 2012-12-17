@@ -1,0 +1,121 @@
+body {
+	font-family:sans-serif;
+	background: -moz-radial-gradient(center, ellipse cover, #B7C0C4 22%, #222 100%);
+	background: -webkit-radial-gradient(center, ellipse cover, #B7C0C4 22%, #222 100%);
+	background: -o-radial-gradient(center, ellipse cover, #B7C0C4 22%, #222 100%);
+	background: -ms-radial-gradient(center, ellipse cover, #B7C0C4 22%, #222 100%);
+	background: radial-gradient(ellipse at center, #B7C0C4 22%, #222 100%);
+	background-position: center center;
+	min-width: 100%;
+	min-height: 100%;
+	padding: 20px;
+	margin: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	width: 100%;
+	height: 100%;
+}
+
+input {    
+	border: 1px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 5px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+}
+
+#userview {
+	height:700px;
+	width: 1200px;
+}
+
+#chatroomview {
+	display: none;
+	margin-right 10%;
+}
+
+#nameinput {
+	width : 50%;
+}
+
+#roommanager {
+	border-bottom: 3px solid black;
+	padding-bottom: 15px;
+	width : 97%;
+}
+
+#chatwrapper {
+	display:inline;
+	width:97%;
+	float:left;
+}
+
+.chatuserswrapper {
+	width:20%;
+	height:500px;
+	float:left;
+	padding:0;
+	border-right:1px solid black;
+}
+
+.chatuserswrapper ul{
+	list-style-type: none;
+}
+
+.chatuserswrapper ul li{
+	font-size: x-large;
+	float: left;
+	text-align: left;
+	width:100%;
+}
+
+.chatuserswrapper h2 {
+	text-align: left;
+	padding-left: 10%;
+	width:90%;
+	background-color:grey;
+}
+.chatmessageswrapper {
+	display:inline;
+	width:78%;
+	height:100%;
+	float:left;
+}
+
+.chatmessageswrapper h2 {
+	text-align: left;
+	padding-left: 10%;
+	width:90%;
+	background-color:grey;
+}
+
+.chatmessage {
+	width:100%;
+	display:block;
+	padding-left:6%;
+	font-size: x-large;
+}
+
+.chatinputwrapper {
+
+}
+
+#chatinputfield {
+padding-top:10px;
+line-height: 30px;
+font-size: x-large;
+
+}
+.chatinput {
+width:100%;
+float:left;
+padding-top:10px;
+}
