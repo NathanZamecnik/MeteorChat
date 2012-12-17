@@ -6,7 +6,9 @@ Chatroom = new Meteor.Collection('chatroom');
 	message -> point to messages collection?
 }
 */
-if(Meteor.isClient) {
+if(Meteor.isClient) {	
+		//$(".chatmessagewrapper").scrollTop($(".chatmessagewrapper")[0].scrollHeight);
+
 	Meteor.autosubscribe(function() {
 		Meteor.subscribe('chatroom');
 	});
@@ -37,6 +39,7 @@ if(Meteor.isClient) {
 				console.log(Session.get('current_room') + msg);
 				Chatroom.insert({'chatroom':Session.get('current_room'), 'message':msg, 'user':Session.get('username')})
 				document.getElementById('chatinputfield').value = '';
+				window.scrollTo(0, document.body.scrollHeight);
 			}
 		}
 	});

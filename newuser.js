@@ -23,14 +23,13 @@ if (Meteor.isClient) {
       //Also, if OK then hide the 
       //console.log('user: ' + new_user_name);
       //add the new user and put them in general chat
-      var userid = Users.insert({'name':new_user_name,'chatroom':'General Discussion'}, function () {
+      var userid = Users.insert({'name':new_user_name,'chatroom':GLOBAL_DEFAULTCHATROOM}, function () {
         Session.set("username",new_user_name);
         document.getElementById('chatroomview').style.display = 'block';
         document.getElementById('userview').style.display = 'none';        
       });
       Session.set('userid',userid);
-      Session.set('current_room','General Discussion');
-
+      Session.set('current_room',GLOBAL_DEFAULTCHATROOM);
       }
     }
   });

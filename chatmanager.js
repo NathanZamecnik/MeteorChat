@@ -10,11 +10,11 @@ if(Meteor.isClient) {
  	Meteor.subscribe('chatrooms');
  });
 
- Template.roomcreate.chatrooms = function() {
+ Template.chatmanager.chatrooms = function() {
     return Chatrooms.find({});
   }
 
- Template.roomcreate.events({
+ Template.chatmanager.events({
   	'click input.chatroom_submit' :  function() {
   		var newchat_name = document.getElementById('newchat_input').value;
   		//validate this content 
@@ -36,6 +36,19 @@ if(Meteor.isClient) {
       //Validate this content as well
       Users.update({'_id' : Session.get('userid')},{'name':Session.get('username'),'chatroom':chatroom});
       Session.set('current_room',chatroom);
+    },
+
+    //'click a.namechange' : function() {
+    	//hide the chat and show the name entry screen
+	//	serviceUser();  
+    //},
+
+    //Do this async
+    'click a.logout' : function() {
+		Users.remove({_id:Session.get('userid')},function() {
+    			document.getElementById('chatroomview').style.display = 'none';
+        		document.getElementById('userview').style.display = 'block';   
+		});
     }
   });
 }

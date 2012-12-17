@@ -53,6 +53,24 @@ input {
 	width : 97%;
 }
 
+.options {
+	float:right;
+}
+
+.logout {
+	float:left;
+}
+
+/*
+.namechange {
+	float:left;
+	padding-right: 10px;
+}*/
+
+.link {
+	color:black;
+}
+
 #chatwrapper {
 	display:inline;
 	width:97%;
