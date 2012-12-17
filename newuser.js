@@ -13,23 +13,26 @@ if (Meteor.isClient) {
     return Session.equals("selected_player", this._id) ? "selected" : '';
     }
 
-  //run events on both sides
   Template.newuser.events({
     'keypress input.newuser' : function(e) {
       if(e.keyCode === 13) {
-      var new_user_name = document.getElementById("nameinput").value;
-      //do some validation here on the user name
-      //is it OK for 2 users to have the same name?
-      //Also, if OK then hide the 
-      //console.log('user: ' + new_user_name);
-      //add the new user and put them in general chat
-      var userid = Users.insert({'name':new_user_name,'chatroom':GLOBAL_DEFAULTCHATROOM}, function () {
-        Session.set("username",new_user_name);
-        document.getElementById('chatroomview').style.display = 'block';
-        document.getElementById('userview').style.display = 'none';        
-      });
-      Session.set('userid',userid);
-      Session.set('current_room',GLOBAL_DEFAULTCHATROOM);
+        var new_user_name = document.getElementById("nameinput").value;
+
+        if(new_user_name === "") return;
+        
+        if(Users.find({'name':new_user_name}).count() === 0) {
+          var userid = Users.insert({'name':new_user_name,'chatroom':GLOBAL_DEFAULTCHATROOM}, function () {
+            Session.set("username",new_user_name);
+            document.getElementById('chatroomview').style.display = 'block';
+            document.getElementById('userview').style.display = 'none';        
+          });
+          Session.set('userid',userid);
+          Session.set('current_room',GLOBAL_DEFAULTCHATROOM);
+        }
+
+        else {
+          alert('Username already exists!');
+        }
       }
     }
   });

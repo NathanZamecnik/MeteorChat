@@ -17,14 +17,20 @@ if(Meteor.isClient) {
  Template.chatmanager.events({
   	'click input.chatroom_submit' :  function() {
   		var newchat_name = document.getElementById('newchat_input').value;
-  		//validate this content 
-  		//Does the chatroom already exist?
-  		//Are the characters legal and encoded?
-  		console.log(newchat_name);
-  		Chatrooms.insert({'chan':newchat_name});
-  		document.getElementById('newchat_input').value = "";
-  		Users.update({'_id' : Session.get('userid')},{'name':Session.get('username'),'chatroom':newchat_name});
-      	Session.set('current_room',newchat_name);
+  		if(newchat_name === "") return;
+  		
+  		if(Chatrooms.find({'chan':newchat_name}).count() === 0) {
+	  		Chatrooms.insert({'chan':newchat_name});
+	  		document.getElementById('newchat_input').value = "";
+	  		Users.update({'_id' : Session.get('userid')},{'name':Session.get('username'),'chatroom':newchat_name}, function() {
+		      	Session.set('current_room',newchat_name);
+		      	document.getElementById("newchat_select").value = newchat_name;
+	  		});
+      	}
+
+      	else {
+      		alert("That room already exists!");
+      	}
   	},
 
   	//this is the event when someone enters a room
