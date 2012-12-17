@@ -37,9 +37,20 @@ if(Meteor.isClient) {
 			if(e.keyCode === 13) {
 				var msg = document.getElementById('chatinputfield').value;
 				console.log(Session.get('current_room') + msg);
-				Chatroom.insert({'chatroom':Session.get('current_room'), 'message':msg, 'user':Session.get('username')})
-				document.getElementById('chatinputfield').value = '';
-				window.scrollTo(0, document.body.scrollHeight);
+
+				if(msg === '/clear') {
+					Chatroom.remove({'chatroom':Session.get('current_room')},function() {
+					document.getElementById('chatinputfield').value = '';
+					window.scrollTo(0, document.body.scrollHeight);
+					})
+				}
+
+				else {
+				Chatroom.insert({'chatroom':Session.get('current_room'), 'message':msg, 'user':Session.get('username')}, function() {
+					document.getElementById('chatinputfield').value = '';
+					window.scrollTo(0, document.body.scrollHeight);
+					})
+				}
 			}
 		}
 	});
