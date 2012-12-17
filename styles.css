@@ -88,7 +88,8 @@ input {
 
 .chatuserswrapper {
 	width:20%;
-	height:500px;
+	height:100%;
+	min-height: 500px;
 	float:left;
 	padding:0;
 	border-right:1px solid black;

@@ -64,9 +64,6 @@ if(Meteor.isServer) {
 	//look at the current_room session
 	//
   	return Chatroom.find({'chatroomname':Session.get('current_room')});
-  	//self.onStop(function () {
-    //	handle.stop();
-  	//});
   });
 
 	Meteor.publish('chatroom', function() {
