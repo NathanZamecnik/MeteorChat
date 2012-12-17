@@ -40,7 +40,6 @@ if(Meteor.isClient) {
       var e = document.getElementById("newchat_select");
       var chatroom = e.options[e.selectedIndex].value;
       var previousroom = Session.get('current_room',chatroom);
-      console.log("was in: " + previousroom);
       //Update the chatroom field from the user collection
       //NOTE THAT UPSERTS ARE NOT AVAILABLE IN METEOR YET
       //Validate this content as well
@@ -48,7 +47,9 @@ if(Meteor.isClient) {
       Session.set('current_room',chatroom);
       if((Users.find({'chatroom':previousroom}).count() === 0)&& GLOBAL_DEFAULTCHATROOM !== previousroom) {
       	//get rid of the room as it is empty.  But not if it is General Chat
-      	Chatrooms.remove({'chan':previousroom});
+      	Chatrooms.remove({'chan':previousroom},function() {
+      		console.log("Destroying: " + previousroom);
+      	});
       }
     },
 
