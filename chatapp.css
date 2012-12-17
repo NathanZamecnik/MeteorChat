@@ -48,11 +48,20 @@ input {
 }
 
 #roommanager {
-	border-bottom: 3px solid black;
+	border-bottom: 1px solid black;
 	padding-bottom: 15px;
 	width : 97%;
 }
 
+#newchat_input {
+	width:35%;
+	margin-right:10px;
+}
+
+#newchat_select {
+	width: 15%;
+	margin-left:10px;
+}
 .options {
 	float:right;
 }
@@ -131,7 +140,8 @@ input {
 padding-top:10px;
 line-height: 30px;
 font-size: x-large;
-
+margin-top :10px;
+margin-bottom:10px;
 }
 .chatinput {
 width:100%;
