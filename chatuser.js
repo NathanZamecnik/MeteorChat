@@ -29,9 +29,6 @@ if (Meteor.isClient) {
           Session.set("username",new_user_name);
           Session.set('userid',userid);
           Session.set('current_room',GLOBAL_DEFAULTCHATROOM);
-          var msg = "Welcome " + Session.get('username') + " to the system!"
-          Chatroom.insert({'chatroom':Session.get('current_room'), 'message':msg, 'user':GLOBAL_SYSTEMNAME});
-
         }
 
         else {

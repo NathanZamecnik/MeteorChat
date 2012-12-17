@@ -43,11 +43,7 @@ if(Meteor.isClient) {
       //Update the chatroom field from the user collection
       //NOTE THAT UPSERTS ARE NOT AVAILABLE IN METEOR YET
       //Validate this content as well
-      Users.update({'_id' : Session.get('userid')},{'name':Session.get('username'),'chatroom':chatroom}, function() {
-      	var msg = Session.get('username') + " has entered the room";
-		Chatroom.insert({'chatroom':Session.get('current_room'), 'message':msg, 'user':GLOBAL_SYSTEMNAME})
-      });
-
+      Users.update({'_id' : Session.get('userid')},{'name':Session.get('username'),'chatroom':chatroom});
       Session.set('current_room',chatroom);
       if((Users.find({'chatroom':previousroom}).count() === 0)&& GLOBAL_DEFAULTCHATROOM !== previousroom) {
       	//get rid of the room as it is empty.  But not if it is General Chat
