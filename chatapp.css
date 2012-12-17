@@ -35,6 +35,7 @@ input {
 #userview {
 	height:700px;
 	width: 1200px;
+	margin:25%;
 }
 
 #chatroomview {
